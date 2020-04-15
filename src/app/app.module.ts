@@ -14,9 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 //toaster module
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
-
 
 //import { NotFoundComponent } from './not-found/not-foundcomponent';
 import { AboutComponent } from './about/about.component';
@@ -45,8 +42,6 @@ import { BlogHttpService } from './blog-http.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
-    ToastModule.forRoot(),
     //router module forRoot method to declare the possible routes in application
     RouterModule.forRoot([
       {path:'home',component : HomeComponent},
