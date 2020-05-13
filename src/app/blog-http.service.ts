@@ -46,6 +46,7 @@ export class BlogHttpService {
 public getSingleBlogInformation(currentBlogId): any {
 
   let myResponse = this._http.get(this.baseUrl+'/view'+'/'+currentBlogId+'?authToken='+this.authToken);
+  console.log(this.baseUrl+'/view'+'/'+currentBlogId+'?authToken='+this.authToken);
   return myResponse;
 }
 
@@ -59,15 +60,17 @@ public createBlog(blogData): any{
 }
 
 public editBlog(blogId,blogData):any{
-
-  let myResponse = this._http.post(this.baseUrl+'/'+blogId+'/edit'+'?authToken'+this.authToken,blogData);
+  let uri= this.baseUrl+'/'+blogId+'/edit'+'?authToken='+this.authToken;
+  console.log(uri);
+  let myResponse = this._http.put(this.baseUrl+'/'+blogId+'/edit'+'?authToken='+this.authToken,blogData);
   return myResponse;
 }
 
-public delete(blogId):any{
+public deleteBlog(blogId):any{
   let data={};
-  let myResponse=this._http.put(this.baseUrl+'/'+blogId+'/delete'+'?this.authToken'+this.authToken,data);
+  let myResponse=this._http.post(this.baseUrl+'/'+blogId+'/delete'+'?authToken='+this.authToken,data);
   return myResponse;
+  
 }
 
 

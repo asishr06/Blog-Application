@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 //toaster module
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 //import { NotFoundComponent } from './not-found/not-foundcomponent';
 import { AboutComponent } from './about/about.component';
@@ -23,9 +24,10 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { BlogService } from './blog.service';
 import { BlogHttpService } from './blog-http.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
-
+//decorators - they tell the kind of file being executed
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { BlogHttpService } from './blog-http.service';
     BlogCreateComponent,
     BlogEditComponent,
     AboutComponent,
-    //NotFoundComponent,
+    NotFoundComponent,
+    NotFoundComponent,
 
   ],
   imports: [
@@ -42,6 +45,8 @@ import { BlogHttpService } from './blog-http.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     //router module forRoot method to declare the possible routes in application
     RouterModule.forRoot([
       {path:'home',component : HomeComponent},
@@ -50,7 +55,7 @@ import { BlogHttpService } from './blog-http.service';
       {path:'blog/:blogId',component:BlogViewComponent},
       {path:'create',component:BlogCreateComponent},
       {path:'edit/:blogId',component:BlogEditComponent},
-     // {path:'**',component:NotFoundComponent},
+      {path:'**',component:NotFoundComponent},
 
     ])
 

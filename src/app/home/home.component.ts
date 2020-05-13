@@ -11,29 +11,29 @@ import { BlogHttpService } from "../blog-http.service";
 })
 
 //a simple class
-export class HomeComponent implements OnInit,OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
 
-  public allBlogs;
+  public allBlogs =[];
 
 
-  constructor(public blogHttpService:BlogHttpService) {
+  constructor(public blogHttpService: BlogHttpService) {
     console.log("Home Component constructor called");
-   }
+  }
 
-   
+
 
   ngOnInit(): void {
 
     console.log("Home Component OnInit called ");
     //this.allBlogs = this.blogHttpService.getAllBlogs();
 
-    this.allBlogs =this.blogHttpService.getAllBlogs().subscribe(
+    this.allBlogs = this.blogHttpService.getAllBlogs().subscribe(
 
       data => {
         console.log(data);
         this.allBlogs = data["data"];
       },
-      error =>{
+      error => {
         console.log("some error occured");
         console.log(error.errorMessage);
       }
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit,OnDestroy {
 
   }
 
-  ngOnDestroy():void {
+  ngOnDestroy(): void {
 
     console.log("home component destroyed.");
 
